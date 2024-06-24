@@ -1,20 +1,11 @@
 import { html, render } from 'lit-html';
-import { bootcamp_backend } from 'declarations/bootcamp_backend';
 import logo from './logo2.svg';
 
 class App {
-  greeting = '';
 
   constructor() {
     this.#render();
   }
-
-  #handleSubmit = async (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    this.greeting = await bootcamp_backend.greet(name);
-    this.#render();
-  };
 
   #render() {
     let body = html`
@@ -33,7 +24,6 @@ class App {
     render(body, document.getElementById('root'));
     document
       .querySelector('form')
-      .addEventListener('submit', this.#handleSubmit);
   }
 }
 
